@@ -1,19 +1,8 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
-import {
-    Card,
-    CardContent,
-    CardMedia,
-    Typography,
-    Divider,
-    Link,
-    Avatar
-} from '@material-ui/core';
-import LockIcon from '@material-ui/icons/Lock';
+import { Card, CardContent, Typography } from '@material-ui/core';
 
 import { Page } from 'components';
-import gradients from 'utils/gradients';
 import { LoginForm } from './components';
 
 const useStyles = makeStyles(theme => ({
