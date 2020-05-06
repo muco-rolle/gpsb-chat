@@ -10,7 +10,7 @@ const routes = [
     {
         path: '/',
         exact: true,
-        component: () => <Redirect to="/chat" />
+        component: () => <Redirect to="/auth/login" />
     },
     {
         path: '/auth',

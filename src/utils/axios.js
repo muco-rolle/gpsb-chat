@@ -1,5 +1,11 @@
 import axios from 'axios';
 
-const instance = axios.create();
+const defaultOptions = {
+    baseURL: 'https://channels.so-mas.net/',
+    headers: {
+        'Content-Type': 'application/json'
+    }
+};
 
-export default instance;
+export const client = axios.create(defaultOptions);
+export default client;

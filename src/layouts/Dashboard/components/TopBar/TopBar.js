@@ -30,7 +30,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
 
 import axios from 'utils/axios';
-import useRouter from 'utils/useRouter';
+import { useRouter } from 'utils';
 import { PricingModal, NotificationsPopover } from 'components';
 import { logout } from 'actions';
 

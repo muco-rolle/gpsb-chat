@@ -3,12 +3,9 @@ import React, { useState, useEffect } from 'react';
 import validate from 'validate.js';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
 import { makeStyles } from '@material-ui/styles';
 import { Button, TextField } from '@material-ui/core';
-
-import useRouter from 'utils/useRouter';
-import { login } from 'actions';
+import { useStoreActions, useStoreState } from 'easy-peasy';
 
 const schema = {
     email: {
@@ -39,10 +36,10 @@ const useStyles = makeStyles(theme => ({
 
 const LoginForm = props => {
     const { className, ...rest } = props;
+    const { login } = useStoreActions(actions => actions.auth);
+    const { loading } = useStoreState(state => state.auth);
 
     const classes = useStyles();
-    const router = useRouter();
-    const dispatch = useDispatch();
 
     const [formState, setFormState] = useState({
         isValid: false,
@@ -82,8 +79,7 @@ const LoginForm = props => {
 
     const handleSubmit = async event => {
         event.preventDefault();
-        // dispatch(login());
-        router.history.push('/');
+        login(formState.values);
     };
 
     const hasError = field =>
@@ -129,7 +125,7 @@ const LoginForm = props => {
                 size="large"
                 type="submit"
                 variant="contained">
-                Sign in
+                {loading ? 'Submitting...' : 'Login'}
             </Button>
         </form>
     );
